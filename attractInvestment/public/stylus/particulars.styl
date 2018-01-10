@@ -1,0 +1,93 @@
+$color = #e50012
+
+div.main
+	div.left
+		width:16%
+		background:$color
+		height:1258px
+		float:left 
+		.img_warp
+			height:108px
+			width:100%
+			line-height:108px
+			img
+				margin-left:20px
+		ul
+			li
+				width:100%
+				height:60px
+				
+				text-align:center
+				line-height:59px
+				font-size:15px
+				cursor:pointer
+				border-bottom:1px solid #dd1b23
+				a
+					color:#fff
+					display:block
+				span
+					line-height:59px
+					float:right
+					margin-right:26px
+			li.money
+				background:url(/images/yuer.png) no-repeat 17% center
+				border-top:1px solid #dd1b23
+			li.cost
+				background:url(/images/bai_mingxi.png) no-repeat 17% center
+	div.right 
+		float:left 
+		width:84%
+		.title
+			height:108px
+			width:430px
+			float:right
+			margin-right:60px
+			position:relative
+			.qygk
+				position:absolute
+				top:82px
+				left:100px
+				display:none
+			.zxzx
+				position:absolute
+				top:82px
+				left:220px
+				color:$color
+				font-weight:bold
+				width:108px	
+				text-align:center
+				background:url(/images/smalltel.png) no-repeat left center
+				padding-left:20px
+				display:none
+			ul 
+				display:flex
+				padding-top:50px
+				li
+					flex:1
+					color:$color
+					border-right:2px solid $color
+					text-align:center
+					font-size:14px
+					font-weight:bold
+					cursor:pointer
+				li:last-child{
+					border-right:none
+					background:url(/images/exit.png) no-repeat 74px center
+				}
+		.box
+			width:100%
+			height:1150px
+			background:#ECF1F5
+			float:left
+			padding:30px
+			td,th
+				text-align:center
+			.tit
+				width:100%
+				border-bottom:1px solid #ccc
+				padding-bottom:10px
+				margin-bottom:40px
+				span:nth-of-type(1){
+					color:#ccc
+				}
+	

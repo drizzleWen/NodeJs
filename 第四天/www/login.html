@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript" src="./jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $(".login").click(function() {
+        $.ajax({
+          url: 'login',
+          data: {
+            act: 'login',
+            user: $('.user').val(),
+            pass: $('.pass').val()
+          },
+          type: 'get',
+          success: function(data) {
+            console.log(data);
+            var str = eval(data);
+            if (str.ok) {
+              alert("登录成功");
+            } else {
+              alert("登录失败");
+            }
+          },
+          err: function() {
+            alert("通信失败");
+          }
+        })
+      });
+    });
+  </script>
+</head>
+
+<body>
+  用户名：<input type="text" name="user" class="user" /><br> 密码:
+  <input type="password" name="pass" class="pass" /><br>
+  <input type="button" value="登录" class="login">
+
+</body>
+
+</html>

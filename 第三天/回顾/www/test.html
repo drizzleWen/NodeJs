@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $(".login").click(function(){
+          $.ajax({
+            url:'user',
+            data:{act:"login",user:$(".user").val(),pass:$(".pass").val()},
+            type:'get',
+            success:function(data){
+              var str=JSON.parse(data);
+              console.log(str);
+              if(str.ok){
+                alert("登录成功")
+              }else {
+                alert("登录失败");
+              }
+            },
+            err:function(){
+              alert("传输失败");
+            }
+          })
+        });
+
+        $(".reg").click(function(){
+          $.ajax({
+            url:'user',
+            data:{act:"reg",user:$(".user").val(),pass:$(".pass").val()},
+            type:'get',
+            success:function(data){
+              var str=JSON.parse(data);
+              console.log(str);
+              if(str.ok){
+                alert("注册成功")
+              }else {
+                alert("注册失败");
+              }
+            },
+            err:function(){
+              alert("传输失败");
+            }
+          })
+        });
+      });
+    </script>
+  </head>
+  <body>
+用户名：<input type="text" name="user" class="user"/><br>
+密码:<input type="password" name="pass" class="pass"><br>
+<input type="button" class="login" value="登录">
+<input type="button" class="reg" value="注册">
+  </body>
+</html>

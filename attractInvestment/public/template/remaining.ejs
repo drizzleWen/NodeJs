@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>招商服务中心-震坤行工业超市</title>
+	<link rel="stylesheet" type="text/css" href="/css/initial.css">
+	<link rel="stylesheet" type="text/css" href="/css/remaining.css">
+	<script src="https://cdn.bootcss.com/echarts/3.8.5/echarts-en.common.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/js/fade.js"></script>
+	<style type="text/css">
+		div.box div.left ul li.money{
+			background: url(/images/yuer_red.png) no-repeat 17% center #ecf1f5;
+
+		}
+		div.box div.left ul li.money a{
+			color: #e50012;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<% include components/left_component.ejs %>
+			<div class="right">
+				<% include components/title_component.ejs %>
+					<div class="echarts">
+						<div class="tit">
+							<span>震坤行工业超市></span><span>余额/总额</span>
+						</div>
+						<div id="main"></div>
+					</div>
+			</div>
+	</div>
+
+	<script type="text/javascript">
+		echarts.init(document.getElementById('main')).setOption({
+			title: {
+				text: '消费情况',
+				left: 'center'
+			},
+			tooltip: {
+				trigger: 'item',
+				formatter: "{a}<br/>{b}:{c}({d}%)"
+			},
+			legend: {
+				orient: 'vertical',
+				x: 'left',
+				data: ['已用', '余额']
+			},
+			series: {
+				name: "消费情况",
+				type: 'pie',
+				label: {
+					normal: {
+						formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%} ',
+						backgroundColor: '#eee',
+						borderColor: '#aaa',
+						borderWidth: 1,
+						borderRadius: 4,
+						rich: {
+							a: {
+								color: '#999',
+								lineHeight: 22,
+								align: 'center'
+							},
+							abg: {
+								backgroundColor: '#333',
+								width: '100%',
+								align: 'right',
+								height: 22,
+								borderRadius: [4, 4, 0, 0]
+							},
+							hr: {
+								borderColor: '#aaa',
+								width: '100%',
+								borderWidth: 0.5,
+								height: 0
+							},
+							b: {
+								fontSize: 16,
+								lineHeight: 33
+							},
+							per: {
+								color: '#eee',
+								backgroundColor: '#334455',
+								padding: [2, 4],
+								borderRadius: 2
+							}
+						}
+					}
+				},
+				data: [{
+						name: '已用',
+						value: 250000
+					},
+					{
+						name: '余额',
+						value: 15000
+					},
+				]
+			}
+		});
+	</script>
+</body>
+
+</html>

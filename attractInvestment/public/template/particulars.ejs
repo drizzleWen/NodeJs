@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>招商服务中心-震坤行工业超市</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/initial.css">
+	<link rel="stylesheet" type="text/css" href="/css/particulars.css">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/js/fade.js"></script>
+	<style type="text/css">
+		div.main div.left ul li.cost{
+			background: url(/images/mingxi.png) no-repeat 17% center #ecf1f5;
+
+		}
+		div.main div.left ul li.cost a{
+			color: #e50012;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="main">
+		<% include components/left_component.ejs %>
+			<div class="right">
+				<% include components/title_component.ejs %>
+					<div class="box">
+						<div class="tit">
+							<span>震坤行工业超市></span><span>费用明细</span>
+						</div>
+						<table class="table table-bordered">
+							<tr>
+								<th>NO</th>
+								<th>时间</th>
+								<th>费用类型</th>
+								<th>名称</th>
+								<th>应用点</th>
+								<th>数量/次数</th>
+								<th>总价（含税）</th>
+								<th>备注</th>
+							</tr>
+							<% for(var i=0;i<details_list.length;i++) {%>
+								<tr>
+									<td>
+										<%= details_list[i].id %>
+									</td>
+									<td>
+										<%= details_list[i].time %>
+									</td>
+									<td>
+										<%= details_list[i].type %>
+									</td>
+									<td>
+										<%= details_list[i].name %>
+									</td>
+									<td>
+										<%= details_list[i].address %>
+									</td>
+									<td>
+										<%= details_list[i].num %>
+									</td>
+									<td>
+										<%= details_list[i].totalPrice %>
+									</td>
+									<td>
+										<%= details_list[i].remarks %>
+									</td>
+								</tr>
+								<% } %>
+						</table>
+					</div>
+
+			</div>
+	</div>
+</body>
+
+</html>
